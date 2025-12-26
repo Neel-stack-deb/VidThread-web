@@ -9,6 +9,6 @@ export const errorMiddleware = (err, res) => {
 
   // Create an ApiResponse instance and send the response
   const apiResponse = new ApiResponse(statusCode, message);
-  return apiResponse.send(res);
+  return res.status(err.status).json(apiResponse);
 
 };
